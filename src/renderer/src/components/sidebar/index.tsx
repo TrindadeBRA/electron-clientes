@@ -6,7 +6,7 @@ import LinkContent from "../link"
 export default function Sidebar() {
     const isMacOS = process.platform === 'darwin'
 
-    
+
     return (
         <Collapsible.Content
             className={clsx(
@@ -24,6 +24,16 @@ export default function Sidebar() {
             }>
                 <ArrowBendDoubleUpLeft className="size-7" />
             </Collapsible.Trigger>
+
+            <div className={clsx(
+                "region-drag h-14 z-0 mt-10", {
+                    block: isMacOS,
+                    hidden: !isMacOS,
+                }
+            )}
+            >
+
+            </div>
 
             <div className={
                 clsx(
