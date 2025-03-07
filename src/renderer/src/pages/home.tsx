@@ -3,8 +3,8 @@ export default function Home() {
 
 
   async function handleFetchUsers() {
-    const users = await window.api.fetchUsers()
-    console.log(users)
+    const response = await window.api.fetchAllCustomers()
+    console.log(response)
   }
   
   return (
