@@ -57,10 +57,9 @@ export default function Sidebar() {
                     </div>
 
                     <section className="flex flex-col gap-px">
-                        <LinkContent to="/" >Home</LinkContent>
-                        <LinkContent to="/create" >Criar</LinkContent>
+                        <LinkContent to="/" >Clientes</LinkContent>
+                        <LinkContent to="/create" >Cadastrar Cliente</LinkContent>
                         <LinkContent to="/about" >Sobre</LinkContent>
-                        <LinkContent to="/detail" >Detalhes</LinkContent>
                     </section>
 
 
