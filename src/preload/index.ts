@@ -25,6 +25,12 @@ const api = {
   },
   fetchAllCustomers: (): Promise<Customer[]> => {
     return ipcRenderer.invoke('fetch-all-customers')
+  },
+  fetchCustomerById: (docId: string): Promise<Customer | null> => {
+    return ipcRenderer.invoke('fetch-customer-id', docId)
+  },
+  deleteCustomer: (docId: string): Promise<PouchDB.Core.Response | null> => {
+    return ipcRenderer.invoke('delete-customer', docId)
   }
 }
 

@@ -61,3 +61,41 @@ ipcMain.handle("fetch-all-customers", async () => {
     const result = await fetchAllCustomers();
     return result;
 })
+
+
+
+//buscar cliente por id
+async function fetchCustomerById(docId: string): Promise<Customer | null> {
+    return db.get(docId)
+        .then((res) => res)
+        .catch((err) => {
+            console.error("Erro ao buscar cliente por id", err)
+            return null
+        })
+}
+
+ipcMain.handle("fetch-customer-id", async (event, docId: string) => {
+    const result = await fetchCustomerById(docId);
+    return result;
+})
+
+
+//remover cliente
+async function deleteCustomer(docId: string): Promise<PouchDB.Core.Response | null> {
+
+    try {
+        const doc = await db.get(docId)
+        const result = await db.remove(doc?._id, doc?._rev)
+        return result
+    } catch (error) {
+        console.error("Erro ao remover cliente", error)
+        return null
+    }
+
+
+}
+
+ipcMain.handle("delete-customer", async (event, docId: string): Promise<PouchDB.Core.Response | null> => {
+    const result = await deleteCustomer(docId);
+    return result;
+})
