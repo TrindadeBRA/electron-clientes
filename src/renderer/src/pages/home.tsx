@@ -1,9 +1,7 @@
-import { useQuery, useQueryClient } from "@tanstack/react-query"
+import { useQuery } from "@tanstack/react-query"
 import { Link } from "react-router-dom"
 
 export default function Home() {
-
-  const queryClient = useQueryClient()
 
   const { data } = useQuery({
     queryKey: ['customers'],
@@ -40,7 +38,7 @@ export default function Home() {
 
         <section className="flex flex-col gap-6 w-full h-screen overflow-y-auto px-10 pb-[200px]">
           {data?.map((customer) => (
-            <Link key={customer._id} to={`/`} className="bg-gray-800 px-4 py-3 rounded">
+            <Link key={customer._id} to={`/customer/${customer._id}`} className="bg-gray-800 px-4 py-3 rounded">
               <p className="mb-2 font-semibold text-lg">{customer.name}</p>
               <p><span className="font-semibold">Email:</span> {customer.email}</p>
               {customer.phone && (
