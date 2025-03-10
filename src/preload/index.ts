@@ -31,6 +31,9 @@ const api = {
   },
   deleteCustomer: (docId: string): Promise<PouchDB.Core.Response | null> => {
     return ipcRenderer.invoke('delete-customer', docId)
+  },
+  getVersion: () => {
+    return ipcRenderer.invoke('get-version')
   }
 }
 

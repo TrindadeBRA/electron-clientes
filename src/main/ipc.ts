@@ -1,4 +1,4 @@
-import { ipcMain } from 'electron'
+import { app, ipcMain } from 'electron'
 
 ipcMain.handle("fetch-users", () => {
     console.log("Buscando usuários...")
@@ -18,3 +18,8 @@ ipcMain.handle("fetch-users", () => {
         },
     ]
 })  
+
+//get version 
+ipcMain.handle("get-version", () => {
+    return app.getVersion()
+})
