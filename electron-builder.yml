@@ -1,5 +1,5 @@
-appId: com.electron.app
-productName: electron-clientes
+appId: com.devclientes.app
+productName: Dev Clientes
 directories:
   buildResources: build
 files:
@@ -12,7 +12,7 @@ files:
 asarUnpack:
   - resources/**
 win:
-  executableName: electron-clientes
+  executableName: dev-clientes
 nsis:
   artifactName: ${name}-${version}-setup.${ext}
   shortcutName: ${productName}
@@ -34,10 +34,8 @@ linux:
     - snap
     - deb
   maintainer: electronjs.org
+  synopsis: ${description}
   category: Utility
 appImage:
   artifactName: ${name}-${version}.${ext}
 npmRebuild: false
-publish:
-  provider: generic
-  url: https://example.com/auto-updates
