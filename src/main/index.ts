@@ -5,6 +5,7 @@ import { createFileRoute, createURLRoute } from 'electron-router-dom'
 import createTray from './tray'
 import './ipc'
 import './store'
+import { registerShortcuts } from './shortcuts'
 
 function createWindow(): void {
   // Create the browser window.
@@ -28,6 +29,9 @@ function createWindow(): void {
 
   // Create the tray
   createTray(mainWindow)
+
+  // Register shortcuts
+  registerShortcuts(mainWindow)
 
   // Set the icon for macOS
   if (process.platform === 'darwin') {
